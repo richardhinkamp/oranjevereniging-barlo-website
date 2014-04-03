@@ -1,0 +1,13 @@
+# sitemap settings
+
+template: sitemap.twig
+xml_template: assets/sitemap_xml.twig
+
+ignore:
+  - /info/home
+  - /info/error404
+
+#ignore_contenttype:
+#  - headers
+#  - scores
+#  - standings

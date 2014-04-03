@@ -1,0 +1,45 @@
+{
+    "name": "richardhinkamp/oranjevereniging-barlo-website",
+    "description": "Website for Christelijke Oranjevereniging Wilhemina Barlo",
+    "license": "MIT",
+    "type": "project",
+    "autoload": {
+        "psr-0": { "": "src/" }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/richardhinkamp/kcfinder"
+        }
+    ],
+    "require": {
+        "erusev/parsedown": "dev-master",
+        "garetjax/phpbrowscap": "dev-master",
+        "hautelook/phpass": "dev-master",
+        "ircmaxell/random-lib": "1.0.*@dev",
+        "silex/silex": "1.1.*",
+        "bolt/bolt": "dev-master",
+        "richardhinkamp/kcfinder": "dev-master",
+        "twbs/bootstrap-sass": "~3.1"
+    },
+    "require-dev": {
+    },
+    "minimum-stability": "stable",
+    "config": {
+        //"preferred-install": "dist"
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "Bolt\\Composer\\ScriptHandler::installAssets",
+            "KCFinder\\Composer\\ScriptHandler::installAssets"
+        ],
+        "post-update-cmd": [
+            "Bolt\\Composer\\ScriptHandler::installAssets",
+            "KCFinder\\Composer\\ScriptHandler::installAssets"
+        ]
+    },
+    "extra": {
+        "bolt-web-dir": "web",
+        "bolt-dir-mode": "0755"
+    }
+}

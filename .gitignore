@@ -1,0 +1,7 @@
+vendor/
+web/bolt-public/
+web/files/*/*
+web/kcfinder/
+config/config_local.yml
+cache/*
+.idea/

@@ -1,0 +1,306 @@
+// Core variables and mixins
+@import "../../vendor/twbs/bootstrap-sass/vendor/assets/stylesheets/bootstrap/variables";
+@import "../../vendor/twbs/bootstrap-sass/vendor/assets/stylesheets/bootstrap/mixins";
+
+// Reset
+@import "../../vendor/twbs/bootstrap-sass/vendor/assets/stylesheets/bootstrap/normalize";
+@import "../../vendor/twbs/bootstrap-sass/vendor/assets/stylesheets/bootstrap/print";
+
+// Core CSS
+@import "../../vendor/twbs/bootstrap-sass/vendor/assets/stylesheets/bootstrap/scaffolding";
+@import "../../vendor/twbs/bootstrap-sass/vendor/assets/stylesheets/bootstrap/type";
+//@import "../../vendor/twbs/bootstrap-sass/vendor/assets/stylesheets/bootstrap/code";
+@import "../../vendor/twbs/bootstrap-sass/vendor/assets/stylesheets/bootstrap/grid";
+//@import "../../vendor/twbs/bootstrap-sass/vendor/assets/stylesheets/bootstrap/tables";
+@import "../../vendor/twbs/bootstrap-sass/vendor/assets/stylesheets/bootstrap/forms";
+@import "../../vendor/twbs/bootstrap-sass/vendor/assets/stylesheets/bootstrap/buttons";
+
+// Components
+@import "../../vendor/twbs/bootstrap-sass/vendor/assets/stylesheets/bootstrap/component-animations";
+//@import "../../vendor/twbs/bootstrap-sass/vendor/assets/stylesheets/bootstrap/glyphicons";
+//@import "../../vendor/twbs/bootstrap-sass/vendor/assets/stylesheets/bootstrap/dropdowns";
+//@import "../../vendor/twbs/bootstrap-sass/vendor/assets/stylesheets/bootstrap/button-groups";
+//@import "../../vendor/twbs/bootstrap-sass/vendor/assets/stylesheets/bootstrap/input-groups";
+@import "../../vendor/twbs/bootstrap-sass/vendor/assets/stylesheets/bootstrap/navs";
+@import "../../vendor/twbs/bootstrap-sass/vendor/assets/stylesheets/bootstrap/navbar";
+//@import "../../vendor/twbs/bootstrap-sass/vendor/assets/stylesheets/bootstrap/breadcrumbs";
+@import "../../vendor/twbs/bootstrap-sass/vendor/assets/stylesheets/bootstrap/pagination";
+@import "../../vendor/twbs/bootstrap-sass/vendor/assets/stylesheets/bootstrap/pager";
+@import "../../vendor/twbs/bootstrap-sass/vendor/assets/stylesheets/bootstrap/labels";
+//@import "../../vendor/twbs/bootstrap-sass/vendor/assets/stylesheets/bootstrap/badges";
+@import "../../vendor/twbs/bootstrap-sass/vendor/assets/stylesheets/bootstrap/jumbotron";
+@import "../../vendor/twbs/bootstrap-sass/vendor/assets/stylesheets/bootstrap/thumbnails";
+//@import "../../vendor/twbs/bootstrap-sass/vendor/assets/stylesheets/bootstrap/alerts";
+//@import "../../vendor/twbs/bootstrap-sass/vendor/assets/stylesheets/bootstrap/progress-bars";
+@import "../../vendor/twbs/bootstrap-sass/vendor/assets/stylesheets/bootstrap/media";
+@import "../../vendor/twbs/bootstrap-sass/vendor/assets/stylesheets/bootstrap/list-group";
+@import "../../vendor/twbs/bootstrap-sass/vendor/assets/stylesheets/bootstrap/panels";
+//@import "../../vendor/twbs/bootstrap-sass/vendor/assets/stylesheets/bootstrap/wells";
+@import "../../vendor/twbs/bootstrap-sass/vendor/assets/stylesheets/bootstrap/close";
+
+// Components w/ JavaScript
+@import "../../vendor/twbs/bootstrap-sass/vendor/assets/stylesheets/bootstrap/modals";
+@import "../../vendor/twbs/bootstrap-sass/vendor/assets/stylesheets/bootstrap/tooltip";
+@import "../../vendor/twbs/bootstrap-sass/vendor/assets/stylesheets/bootstrap/popovers";
+@import "../../vendor/twbs/bootstrap-sass/vendor/assets/stylesheets/bootstrap/carousel";
+
+// Utility classes
+@import "../../vendor/twbs/bootstrap-sass/vendor/assets/stylesheets/bootstrap/utilities";
+@import "../../vendor/twbs/bootstrap-sass/vendor/assets/stylesheets/bootstrap/responsive-utilities";
+
+body {
+  background: url(../img/background2.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-size: 1.5em;
+  line-height: 1.2;
+  color: #000;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 400;
+
+  a {
+    color: #333;
+
+    &:hover {
+      color: #666;
+    }
+  }
+}
+
+a {
+  color: darkorange;
+
+  &:hover {
+    color: darken(darkorange,10%);
+  }
+}
+
+p {
+}
+
+hr {
+  border-color: #999999;
+  max-width: 400px;
+}
+
+.brand,
+.address-bar {
+  display: none;
+}
+
+
+.navbar-brand {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 900;
+}
+
+.navbar-nav {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 400;
+}
+
+.img-full {
+  min-width: 100%;
+}
+
+.brand-name {
+  font-weight: 700;
+  font-size: 1.5em;
+  text-transform: capitalize;
+  letter-spacing: normal;
+}
+
+.tagline-divider {
+  margin: 15px auto 3px;
+  border-color: #999999;
+  max-width: 250px;
+}
+
+.box {
+  background: #fff;
+  background: rgba(255,255,255,0.9);
+  margin-bottom: 20px;
+  padding: 30px 15px;
+}
+
+.intro-text {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 1.25em;
+  font-weight: 400;
+}
+
+.img-border {
+  float: none;
+  margin: 0 auto 0;
+  border: #999999 solid 1px;
+}
+
+.img-left {
+  float: none;
+  margin: 0 auto 0;
+}
+
+footer {
+  background: #fff;
+  background: rgba(255,255,255,0.9);
+
+  p {
+    margin: 0;
+    padding: 20px 0;
+    font-size: 90%;
+
+    a {
+      color: #333;
+      &:hover {
+        color: #666;
+      }
+    }
+  }
+}
+
+.home-right {
+  .list-group-item {
+    background-color: rgba(255,255,255,0.5);
+
+    &:hover,
+    &:focus {
+      background-color: rgba(255,255,255,0.7);
+    }
+
+
+    .meta-date {
+      display: block;
+      font-size: 80%;
+      font-style: italic;
+    }
+  }
+}
+
+.listing-container {
+  h2 {
+    font-size: 120%;
+    a {
+      @include text-overflow();
+      width: 100%;
+      display: inline-block;
+    }
+  }
+
+  .intro {
+    height: 75px;
+    overflow: hidden;
+  }
+}
+
+.board-members {
+  .board-member {
+    height: 270px;
+
+    img {
+      width: 250px;
+      height: 200px;
+    }
+
+    h3 {
+      font-size: 14px;
+    }
+
+    h4 {
+      font-size: 12px;
+      color: #999999;
+    }
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+
+  .brand {
+    display: inherit;
+    font-weight: 700;
+    font-size: 5em;
+    line-height: normal;
+    text-align: center;
+    margin: 0;
+    padding: 30px 0 10px;
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  }
+
+  .top-divider {
+    margin-top: 0;
+  }
+
+  .img-left {
+    float: left;
+    margin-right: 25px;
+  }
+
+  .address-bar {
+    display: inherit;
+    text-align: center;
+    margin: 0;
+    padding: 0 0 40px;
+    font-size: 1.25em;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 400;
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  }
+
+  .navbar {
+    border-radius: 0;
+  }
+
+  .navbar-header {
+    display: none;
+  }
+
+  .navbar {
+    min-height: 0;
+  }
+
+  .navbar-default {
+    background: #fff;
+    background: rgba(255,255,255,0.9);
+    border: none;
+  }
+
+  .nav>li>a {
+    padding: 35px;
+  }
+
+  .navbar-nav>li>a {
+    line-height: normal;
+  }
+
+  .navbar-nav {
+    float: none;
+    margin: 0 auto;
+    display: table;
+    table-layout: fixed;
+    font-size: 1.25em;
+  }
+
+}
+
+@media screen and (min-width: 1200px) {
+  .box:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
