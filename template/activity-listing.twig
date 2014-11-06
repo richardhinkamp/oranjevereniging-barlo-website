@@ -12,7 +12,7 @@
                     <hr>
                 </div>
 
-                {% setcontent records = "activiteiten/first/15" where { end: '>NOW' } orderby 'start' %}
+                {% setcontent records = "activiteiten/first/50" where { end: '>NOW' } orderby 'start' %}
                 {% for record in records %}
                 <div class="col-lg-12 text-center">
                     {#{% if record.image!="" %}#}
@@ -27,6 +27,15 @@
                     <hr>
                 </div>
                 {% endfor %}
+                <div class="clearfix"></div>
+
+                <h3>Geweest</h2>
+                {% setcontent records = "activiteiten/first/15" where { end: '<NOW' } orderby 'start desc' %}
+                <ul>
+                {% for record in records %}
+                    <li><a href="{{ record.link }}"><small>{{ record.getDateTimeDescription}}</small> {{ record.title }}</a></li>
+                {% endfor %}
+                </ul>
             </div>
         </div>
 

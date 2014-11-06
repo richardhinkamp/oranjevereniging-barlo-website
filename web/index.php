@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+define('BOLT_WEB_DIR', __DIR__);
 require_once( '../src/bootstrap.php' );
 
 if (preg_match("~^/thumbs/(.*)$~", $_SERVER['REQUEST_URI'])) {

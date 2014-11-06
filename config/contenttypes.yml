@@ -156,6 +156,53 @@ pages:
     default_status: publish
     recordsperpage: 100
 
+picasa_album:
+    name: Foto albums
+    slug: foto-albums
+    singular_name: Foto album
+    singular_slug: foto-album
+    fields:
+        title:
+            type: text
+            class: large
+        slug:
+            type: slug
+            uses: title
+        description:
+            type: textarea
+            height: 150px
+        url:
+            type: text
+        thumb_url:
+            type: text
+        sync:
+            type: checkbox
+    sort: datepublish DESC
+    record_template: picasa-detail.twig
+    listing_template: picasa-listing.twig
+    default_status: draft
+    recordsperpage: 100
+
+picasa_photo:
+    name: Foto's
+    slug: fotos
+    singular_name: Foto
+    singular_slug: foto
+    show_on_dashboard: false
+    fields:
+        album_id:
+            type: integer
+        title:
+            type: text
+            class: large
+        url:
+            type: text
+        thumb_url:
+            type: text
+    sort: datepublish ASC
+    default_status: published
+    recordsperpage: 1000
+
 # possible field types:
 # text - varchar(256) - input type text.
 # integer - integer - Input field for integer numbers.

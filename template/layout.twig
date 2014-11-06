@@ -14,6 +14,7 @@
     {% endif %}
     <title>{% block title_text %}{% if record.title is defined %}{{ record.title|striptags }}{% else %}{{ app.config.get('sitename') }}{% endif %}{% endblock %}</title>
     <link href="/css/style.css" rel="stylesheet">
+    {% block css %}{% endblock %}
     <link href="/favicon.ico" type="images/ico" rel="SHORTCUT ICON">
 </head>
 
@@ -47,9 +48,9 @@
                 <li>
                     <a href="/activiteiten">Activiteiten</a>
                 </li>
-                {#<li>#}
-                    {#<a href="/fotos">Foto's</a>#}
-                {#</li>#}
+                <li>
+                    <a href="/foto-albums">Foto's</a>
+                </li>
                 <li>
                     <a href="/bestuur">Bestuur</a>
                 </li>
@@ -135,8 +136,10 @@
     </div>
 </footer>
 
+{% block javascript %}
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="js/bootstrap.js"></script>
+<script src="/bolt-public/view/js/bootstrap.min.js"></script>
+{% endblock %}
 
 </body>
 

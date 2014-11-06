@@ -11,13 +11,7 @@
                 <hr>
             </div>
             <div class="col-lg-12">
-                <ul>
-                    {% for entry in entries %}
-                        {% if entry.link is defined %}
-                            <li><a href="{{ entry.link }}">{{ entry.title }}</a></li>
-                        {% endif %}
-                    {% endfor %}
-                </ul>
+                {% include 'assets/_sitemap_list.twig' %}
             </div>
             <div class="clearfix"></div>
         </div>

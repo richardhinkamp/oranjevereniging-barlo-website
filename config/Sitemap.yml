@@ -7,7 +7,7 @@ ignore:
   - /info/home
   - /info/error404
 
-#ignore_contenttype:
-#  - headers
+ignore_contenttype:
+  - fotos
 #  - scores
 #  - standings

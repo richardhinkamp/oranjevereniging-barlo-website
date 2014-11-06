@@ -236,3 +236,7 @@ hash_strength: 10
 #  host: my.proxy.server
 #  user: usr
 #  password: pwd
+
+bolt_picasa:
+  album_slug: foto-albums
+  photo_slug: fotos

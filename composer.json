@@ -10,15 +10,24 @@
         {
             "type": "vcs",
             "url": "https://github.com/richardhinkamp/kcfinder"
+        },
+		{
+			"type": "vcs",
+			"url": "https://github.com/richardhinkamp/bolt"
+		},
+        {
+            "type": "vcs",
+            "url": "https://github.com/richardhinkamp/bolt-picasa"
         }
     ],
     "require": {
-        "erusev/parsedown": "dev-master",
-        "garetjax/phpbrowscap": "dev-master",
+        "bolt/bolt": "dev-release/1.6",
+        "bolt/thumbs": "1.7.*@dev",
         "hautelook/phpass": "dev-master",
-        "ircmaxell/random-lib": "1.0.*@dev",
-        "silex/silex": "1.1.*",
-        "bolt/bolt": "dev-master",
+        "ircmaxell/random-lib": "dev-master",
+        "filp/whoops": "dev-master",
+
+        "richardhinkamp/bolt-picasa": "dev-master",
         "richardhinkamp/kcfinder": "dev-master",
         "twbs/bootstrap-sass": "~3.1"
     },
@@ -26,7 +35,7 @@
     },
     "minimum-stability": "stable",
     "config": {
-        //"preferred-install": "dist"
+        "preferred-install": "dist"
     },
     "scripts": {
         "post-install-cmd": [
