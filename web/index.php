@@ -18,5 +18,11 @@ if (preg_match("~^/thumbs/(.*)$~", $_SERVER['REQUEST_URI'])) {
     require __DIR__ . '/../vendor/bolt/bolt/app/classes/timthumb.php';
 } else {
     // Here we go!
-    $app->run();
+    if ($app['debug']) {
+        $app->run();
+    } else {
+        /** @var $cache \Silex\HttpCache */
+        $cache = $app['http_cache'];
+        $cache->run();
+    }
 }
