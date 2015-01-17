@@ -45,9 +45,15 @@ rm -rf vendor/bolt/bolt/app/extensions/TestSnippets
 rm -rf vendor/twbs/bootstrap-sass
 rm -rf vendor/richardhinkamp/kcfinder
 rm -rf vendor/symfony/icu/Symfony/Component/Icu/Resources/
+find vendor/symfony/intl/Symfony/Component/Intl/Resources/data/ -name '*.json' ! -name en.json ! -name nl.json ! -name eu.json ! -name nl_NL.json -delete
 rm -rf src/sass
+rm -rf .sass-cache
 rm -rf web/files
 rm -rf web/fancybox/demo
+rm -rf web/fancybox/lib/jquery*
+rm -rf web/fancybox/source/jquery.fancybox.js
+rm web/fancybox/*
+rm web/fancybox/.git*
 rm -rf .idea
 rm -f config/config_local.yml
 rm pack.sh
