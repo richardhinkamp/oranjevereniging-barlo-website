@@ -13,7 +13,7 @@
                 </div>
 
                 <div class="photos">
-                    {% setcontent photos = "fotos" where { album_id: record.id }  %}
+                    {% setcontent photos = "fotos" where { album_id: record.id } orderby 'datepublish ASC' %}
                     {% for photo in photos %}
                         <a class="col-sm-2 text-center photo" rel="album" href="{{ photo.url }}">
                             <img class="img-responsive" src="{{ photo.thumb_url }}" alt="{{ photo.title }}">
