@@ -12,7 +12,7 @@ class ActivityContent extends Content
         $end = new \DateTime($this->get('end'));
         $startDate = $start->format('d-m-Y');
         $endDate = $end->format('d-m-Y');
-        if ($startDate == $endDate)
+        if ($startDate == $endDate || $start->diff($end)->h <= 24)
         {
             $endDate = '';
         }
