@@ -80,7 +80,7 @@ activity:
 #    taxonomy: [ categories, tags ]
     record_template: activity-detail.twig
     listing_template: activity-listing.twig
-    listing_records: 10
+    listing_records: 20
     default_status: publish
     sort: start ASC
     recordsperpage: 10
@@ -180,6 +180,7 @@ picasa_album:
     sort: datepublish DESC
     record_template: picasa-detail.twig
     listing_template: picasa-listing.twig
+    listing_records: 100
     default_status: draft
     recordsperpage: 100
 
