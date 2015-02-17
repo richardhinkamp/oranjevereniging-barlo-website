@@ -204,6 +204,28 @@ picasa_photo:
     default_status: published
     recordsperpage: 1000
 
+videos:
+    name: Video's
+    slug: videos
+    singular_name: Video
+    singular_slug: video
+    fields:
+        title:
+            type: text
+            class: large
+        slug:
+            type: slug
+            uses: title
+        url:
+            type: text
+    sort: datepublish DESC
+    record_template: video-detail.twig
+    listing_template: video-listing.twig
+    listing_records: 100
+    default_status: published
+    recordsperpage: 100
+    class: Cowb\Content\VideoContent
+
 # possible field types:
 # text - varchar(256) - input type text.
 # integer - integer - Input field for integer numbers.

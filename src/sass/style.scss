@@ -225,8 +225,10 @@ footer {
   }
 }
 
-.photo-albums {
-  .photo-album {
+.photo-albums,
+.videos {
+  .photo-album,
+  .video {
     img {
       width: 160px;
       height: 160px;
@@ -253,6 +255,15 @@ footer {
   }
 }
 
+.videos {
+  .video {
+    img {
+      width: 160px;
+      height: 90px;
+    }
+  }
+}
+
 .photos {
   .photo {
     img {
@@ -261,6 +272,10 @@ footer {
       margin: 0 auto 2em;
     }
   }
+}
+
+.video-player {
+  text-align: center;
 }
 
 @media screen and (min-width: 768px) {
@@ -318,7 +333,7 @@ footer {
   }
 
   .nav>li>a {
-    padding: 35px;
+    padding: 20px;
   }
 
   .navbar-nav>li>a {
