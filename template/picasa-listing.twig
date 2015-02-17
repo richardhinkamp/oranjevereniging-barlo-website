@@ -1,5 +1,7 @@
 {% extends "page.twig" %}
 
+{% block title_text %}Foto's{% endblock %}
+
 {% block page_content %}
     <div class="container">
 
@@ -11,8 +13,6 @@
                     <hr>
                 </div>
                 
-                <p>Binnenkort volgen meer foto's!</p>
-
                 <div class="photo-albums">
                     {% for record in records %}
                         <a class="col-sm-3 text-center photo-album" href="{{ record.link }}">
