@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-if( is_dir(__DIR__ . '/../../public_html/') ) {
+if( is_dir(__DIR__ . '/../public_html/') ) {
     define('BOLT_WEB_DIR', __DIR__ . '/../public_html/');
 } else {
     define('BOLT_WEB_DIR', __DIR__ . '/../web/');
