@@ -3885,11 +3885,16 @@ hr {
 .navbar-brand {
   text-transform: uppercase;
   letter-spacing: 2px;
-  font-weight: 900; }
+  font-weight: bold;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-right: 50px;
+  font-size: 90%; }
 
 .navbar-nav {
   text-transform: uppercase;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
   font-weight: 400; }
 
 .img-full {
@@ -4011,6 +4016,8 @@ footer {
 
 .video-player {
   text-align: center; }
+  .video-player iframe {
+    max-width: 100%; }
 
 @media screen and (min-width: 768px) {
   .brand {
@@ -4021,8 +4028,9 @@ footer {
     text-align: center;
     margin: 0;
     padding: 30px 0 10px;
-    color: #fff;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); }
+    color: #fff; }
+    .brand img {
+      width: 750px; }
 
   .top-divider {
     margin-top: 0; }
@@ -4058,19 +4066,26 @@ footer {
     border: none; }
 
   .nav > li > a {
-    padding: 20px; }
+    padding: 5px 10px; }
 
   .navbar-nav > li > a {
     line-height: normal; }
 
   .navbar-nav {
     float: none;
-    margin: 0 auto;
+    margin: 10px auto;
     display: table;
     table-layout: fixed;
-    font-size: 1.25em; } }
+    font-size: 0.9em; } }
 @media screen and (min-width: 1200px) {
   .box:after {
     content: '';
     display: table;
-    clear: both; } }
+    clear: both; }
+
+  .brand img {
+    width: auto; }
+
+  .navbar-nav {
+    font-size: 1.25em;
+    letter-spacing: 3px; } }
