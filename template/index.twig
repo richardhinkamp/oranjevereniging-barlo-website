@@ -15,6 +15,12 @@
                 {{ record.body }}
             </div>
             <div class="col-sm-4 text-left home-right">
+                <h3>Vrijwilligers</h3>
+                <div class="list-group">
+                    <a href="/info/vrijwilligers-onmisbaar" class="list-group-item" title="Vrijwilligers, onmisbaar!">
+                        Wij draaien op vrijwilligers en zijn daarom altijd op zoek naar vrijwilligers. Wil je ook eens helpen? Kijk hier waarmee je kunt helpen!
+                    </a>
+                </div>
                 <h3><a href="/activiteiten">Activiteiten</a></h3>
                 {% setcontent entries = "activiteiten/first/8" where { end: '>NOW' } orderby 'start' %}
                 <div class="list-group">
