@@ -8,38 +8,58 @@
                 <h2 class="intro-text text-center">{{ record.title }}</h2>
                 <hr>
             </div>
-            {#<div class="col-md-6">#}
-            {#<img class="img-responsive img-border-left" src="img/slide-2.jpg" alt="">#}
-            {#</div>#}
-            <div class="col-lg-8">
+            <div class="col-sm-3 text-left home-right">
+                <h3><a href="/activiteiten">Activiteiten</a></h3>
+                {% setcontent entries = "activiteiten/first/8" where { end: '>NOW' } orderby 'start' %}
+                <div class="list-group">
+                    {% for entry in entries %}
+                        <a href="{{ entry.link }}" class="list-group-item" title="{{ entry.title }}">
+                            <span class="meta-date">{{ entry.getDateTimeDescription }}</span>
+                            {{ entry.title }}
+                        </a>
+                    {% endfor %}
+                </div>
+                <h3><a href="/nieuwsberichten>">Nieuws</a></h3>
+                {% setcontent entries = "nieuws-berichten/latest/3" %}
+                <div class="list-group">
+                    {% for entry in entries %}
+                        <a href="{{ entry.link }}" class="list-group-item" title="{{ entry.title }}">
+                            <span class="meta-date">{{ entry.date|date("d-m-Y") }}</span>
+                            {{ entry.title }}
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-sm-6">
                 {{ record.body }}
             </div>
-            <div class="col-sm-4 text-left home-right">
+            <div class="col-sm-3 text-left home-right">
+                <h3>Nieuwsbrief</h3>
+                <div class="list-group">
+                    <div class="list-group-item newsletter-subscribe">
+                        Blijf per e-mail op de hoogte van onze activiteiten, meld je aan voor onze nieuwsbrief!
+                        <!-- Begin MailChimp Signup Form -->
+                        <form action="//oranjeverenigingbarlo.us10.list-manage.com/subscribe/post?u=c430ecb58d74e25f9219f4cb4&amp;id=4cfd09ab94" method="post" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                            <div class="mc-field-group">
+                                <label for="mce-EMAIL">E-mailadres </label>
+                                <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+                            </div>
+                            <div class="mc-field-group">
+                                <label for="mce-NAME">Naam </label>
+                                <input type="text" value="" name="NAME" class="required" id="mce-NAME">
+                            </div>
+                            <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                            <div style="position: absolute; left: -5000px;"><input type="text" name="b_c430ecb58d74e25f9219f4cb4_4cfd09ab94" tabindex="-1" value=""></div>
+                            <input type="submit" value="Aanmelden" name="subscribe" id="mc-embedded-subscribe" class="button">
+                        </form>
+                        <!--End mc_embed_signup-->
+                    </div>
+                </div>
                 <h3>Vrijwilligers</h3>
                 <div class="list-group">
                     <a href="/info/vrijwilligers-onmisbaar" class="list-group-item" title="Vrijwilligers, onmisbaar!">
                         Wij draaien op vrijwilligers en zijn daarom altijd op zoek naar vrijwilligers. Wil je ook eens helpen? Kijk hier waarmee je kunt helpen!
                     </a>
-                </div>
-                <h3><a href="/activiteiten">Activiteiten</a></h3>
-                {% setcontent entries = "activiteiten/first/8" where { end: '>NOW' } orderby 'start' %}
-                <div class="list-group">
-                {% for entry in entries %}
-                    <a href="{{ entry.link }}" class="list-group-item" title="{{ entry.title }}">
-                        <span class="meta-date">{{ entry.getDateTimeDescription }}</span>
-                        {{ entry.title }}
-                    </a>
-                {% endfor %}
-                </div>
-                <h3><a href="/nieuwsberichten>">Nieuws</a></h3>
-                {% setcontent entries = "nieuws-berichten/latest/3" %}
-                <div class="list-group">
-                {% for entry in entries %}
-                    <a href="{{ entry.link }}" class="list-group-item" title="{{ entry.title }}">
-                        <span class="meta-date">{{ entry.date|date("d-m-Y") }}</span>
-                        {{ entry.title }}
-                    </a>
-                {% endfor %}
                 </div>
             </div>
             <div class="clearfix"></div>

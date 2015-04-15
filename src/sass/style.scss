@@ -287,6 +287,25 @@ footer {
   }
 }
 
+.newsletter-subscribe {
+  color: #555555;
+  
+  label {
+    font-weight: normal;
+    font-style: italic;
+    display: block;
+    margin: 5px 0 0 0;
+  }
+  
+  input {
+    width: 100%;
+    
+    &.button {
+      margin-top: 5px;
+    }
+  }
+}
+
 @media screen and (min-width: 768px) {
 
   .brand {

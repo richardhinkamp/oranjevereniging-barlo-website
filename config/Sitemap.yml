@@ -6,6 +6,7 @@ xml_template: assets/sitemap_xml.twig
 ignore:
   - /info/home
   - /info/error404
+  - /info/bevestiging-nieuwsbrief
 
 ignore_contenttype:
   - fotos
