@@ -8,7 +8,7 @@
                 <h2 class="intro-text text-center">{{ record.title }}</h2>
                 <hr>
             </div>
-            <div class="col-sm-3 text-left home-right">
+            <div class="col-sm-3 text-left home-col">
                 <h3><a href="/activiteiten">Activiteiten</a></h3>
                 {% setcontent entries = "activiteiten/first/8" where { end: '>NOW' } orderby 'start' %}
                 <div class="list-group">
@@ -33,7 +33,7 @@
             <div class="col-sm-6">
                 {{ record.body }}
             </div>
-            <div class="col-sm-3 text-left home-right">
+            <div class="col-sm-3 text-left home-col">
                 <h3>Nieuwsbrief</h3>
                 <div class="list-group">
                     <div class="list-group-item newsletter-subscribe">

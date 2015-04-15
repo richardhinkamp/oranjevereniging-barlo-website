@@ -3944,11 +3944,13 @@ footer {
       footer p a:hover {
         color: #666; }
 
-.home-right .list-group-item {
+.home-col h3:first-child {
+  margin-top: 0; }
+.home-col .list-group-item {
   background-color: rgba(255, 255, 255, 0.5); }
-  .home-right .list-group-item:hover, .home-right .list-group-item:focus {
+  .home-col .list-group-item:hover, .home-col .list-group-item:focus {
     background-color: rgba(255, 255, 255, 0.7); }
-  .home-right .list-group-item .meta-date {
+  .home-col .list-group-item .meta-date {
     display: block;
     font-size: 80%;
     font-style: italic; }
