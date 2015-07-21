@@ -12,6 +12,11 @@
                 <h3><a href="/activiteiten">Activiteiten</a></h3>
                 {% setcontent entries = "activiteiten/first/8" where { end: '>NOW' } orderby 'start' %}
                 <div class="list-group">
+                    {% if entries is empty %}
+                        <a class="list-group-item italic" title="Geen activiteiten gepland">
+                            Geen activiteiten gepland
+                        </a>
+                    {% endif %}
                     {% for entry in entries %}
                         <a href="{{ entry.link }}" class="list-group-item" title="{{ entry.title }}">
                             <span class="meta-date">{{ entry.getDateTimeDescription }}</span>
