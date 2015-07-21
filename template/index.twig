@@ -25,7 +25,8 @@
                     {% endfor %}
                 </div>
                 <h3><a href="/nieuwsberichten>">Nieuws</a></h3>
-                {% setcontent entries = "nieuws-berichten/latest/3" %}
+                {% set monthBack = 'now'|date_modify('-1 month')|date('Y-m-d 00:00:00') %}
+                {% setcontent entries = "nieuws-berichten/first/3" where { datepublish: '> ' ~ monthBack } orderby 'datepublish' %}
                 <div class="list-group">
                     {% if entries is empty %}
                         <a class="list-group-item italic" title="Geen nieuws momenteel">
