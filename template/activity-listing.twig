@@ -14,6 +14,11 @@
                 </div>
 
                 {% setcontent records = "activiteiten/first/50" where { end: '>NOW' } orderby 'start' %}
+                {% if records is empty %}
+                    <div class="col-lg-12 text-center italic">
+                        Geen activiteiten gepland
+                    </div>
+                {% endif %}
                 {% for record in records %}
                 <div class="col-lg-12 text-center">
                     {#{% if record.image!="" %}#}
