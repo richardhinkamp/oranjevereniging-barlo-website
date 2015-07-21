@@ -20,7 +20,7 @@
                     {% endif %}
                     <h2><a href="{{ record.link }}">{{ record.title }}</a>
                         <br>
-                        <small>{{ record.date|date("d-m-Y")}}</small>
+                        <small>{{ record.datepublish|date("d-m-Y")}}</small>
                     </h2>
                     <div class="text-left">{{ record.intro }}</div>
                     <a href="{{ record.link }}" class="btn btn-default btn-lg">Lees verder</a>
