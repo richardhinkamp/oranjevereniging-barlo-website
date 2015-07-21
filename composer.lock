@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "79104b641a87a99508531cc4d0a68453",
+    "hash": "ff30983ad68716de06c9f70c9569ef45",
     "packages": [
         {
             "name": "bolt/bolt",
@@ -16,7 +16,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/richardhinkamp/bolt/zipball/4a91ea74df960c2eee019acea32d628d2b2d4098",
+                "url": "https://api.github.com/repos/richardhinkamp/bolt/zipball/743bb8bd0ef2199f164f47301ece081990a2fceb",
                 "reference": "4a91ea74df960c2eee019acea32d628d2b2d4098",
                 "shasum": ""
             },
@@ -691,7 +691,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filp/whoops/zipball/72538eeb70bbfb11964412a3d098d109efd012f7",
+                "url": "https://api.github.com/repos/filp/whoops/zipball/494fa733db16e2ac66c514621150bd97a0a4eb37",
                 "reference": "a85fab9a98f1f9b8ebcdbe71733f0d910e5b9adf",
                 "shasum": ""
             },
@@ -1113,12 +1113,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/richardhinkamp/bolt-picasa.git",
-                "reference": "0b2ae24a92147410862432935af3cbdc3791f87e"
+                "reference": "563532b3c22c06114ee30edef899a14b1832072f"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/richardhinkamp/bolt-picasa/zipball/563532b3c22c06114ee30edef899a14b1832072f",
-                "reference": "0b2ae24a92147410862432935af3cbdc3791f87e",
+                "reference": "563532b3c22c06114ee30edef899a14b1832072f",
                 "shasum": ""
             },
             "require": {
@@ -1140,7 +1140,7 @@
                 "source": "https://github.com/richardhinkamp/bolt-picasa/tree/master",
                 "issues": "https://github.com/richardhinkamp/bolt-picasa/issues"
             },
-            "time": "2014-11-06 20:28:13"
+            "time": "2015-05-05 08:45:20"
         },
         {
             "name": "richardhinkamp/kcfinder",
