@@ -16,7 +16,8 @@
                 <div class="photo-albums">
                     {% for record in records %}
                         <a class="col-sm-3 text-center photo-album" href="{{ record.link }}">
-                            <img class="img-responsive" src="{{ record.thumb_url }}" alt="{{ record.title }}">
+                            {% setcontent photo = "fotos/first/1" where { album_id: record.id } orderby 'datepublish ASC' %}
+                            <img class="img-responsive" src="{{ (photo|first).thumb_url }}" alt="{{ record.title }}">
                             <h3>{{ record.title }}</h3>
                             <p>{{ record.description }}</p>
                         </a>
