@@ -9,6 +9,11 @@ DirectoryIndex index.php index.html index.htm
 <IfModule mod_rewrite.c>
   RewriteEngine on
 
+  RewriteCond %{HTTP_HOST} !^$
+  RewriteCond %{HTTP_HOST} !.dev$
+  RewriteCond %{HTTP_HOST} !^www\. [NC]
+  RewriteRule ^ http://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
   # Some servers require the RewriteBase to be set. If so, set to the correct folder.
   # RewriteBase /
   #RewriteRule ^thumbs/(.*)?$ ./timthumb.php [L]
