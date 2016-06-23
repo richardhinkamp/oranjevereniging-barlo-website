@@ -18,6 +18,9 @@ DirectoryIndex index.php index.html index.htm
   # RewriteBase /
   #RewriteRule ^thumbs/(.*)?$ ./timthumb.php [L]
 
+  RewriteRule ^fout(/?) /activiteit/het-foute-feest [R=301,L]
+  RewriteRule ^kidsdisco(/?) /activiteit/kids-disco [R=301,L]
+
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_URI} !=/favicon.ico
