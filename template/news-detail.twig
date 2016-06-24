@@ -9,10 +9,10 @@
                     {% if record.image!="" %}
                         <img class="img-responsive img-border img-full" src="{{ thumbnail(record.image, 800, 300) }}" alt="">
                     {% endif %}
-                    <h2>{{ record.title }}
+                    <h1>{{ record.title }}
                         <br>
                         <small>{{ record.datepublish|date("d-m-Y")}}</small>
-                    </h2>
+                    </h1>
                     <div class="text-left">{{ record.body }}</div>
                 </div>
             </div>
