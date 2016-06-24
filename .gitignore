@@ -2,6 +2,7 @@ vendor/
 web/bolt-public/
 web/files/*/*
 web/kcfinder/
+web/css/*.css.map
 config/config_local.yml
 cache/*
 .idea/
