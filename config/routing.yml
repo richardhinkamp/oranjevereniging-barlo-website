@@ -44,6 +44,10 @@ contentlisting:
   requirements:
     contenttypeslug:  'Bolt\Controllers\Routing::getPluralContentTypeRequirement'
 
+emailconfirm:
+  path:               /emailconfirm/{data}/{hash}
+  defaults:           { _controller: 'Cowb\Controllers\Frontend::emailconfirm' }
+
 # ------------------------------------------------------------------------------
 # Place your own routes here, that have a LOWER priority than the default routes.
 

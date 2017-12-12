@@ -223,6 +223,21 @@ videos:
     default_status: published
     recordsperpage: 100
     class: Cowb\Content\VideoContent
+    
+emailconfirm:
+    name: Emailadressen
+    slug: emails
+    singular_name: Emailadres
+    singular_slug: email
+    show_on_dashboard: true
+    fields:
+        email:
+            type: text
+        confirmed:
+            type: datetime
+    sort: datepublish ASC
+    default_status: draft
+    recordsperpage: 0
 
 # possible field types:
 # text - varchar(256) - input type text.
