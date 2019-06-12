@@ -15,12 +15,20 @@
                 
                 <div class="photo-albums">
                     {% for record in records %}
-                        <a class="col-sm-3 text-center photo-album" href="{{ record.link }}">
-                            {% setcontent photo = "fotos/first/1" where { album_id: record.id } orderby 'datepublish ASC' %}
-                            <img class="img-responsive" src="{{ (photo|first).thumb_url }}" alt="{{ record.title }}">
-                            <h3>{{ record.title }}</h3>
-                            <p>{{ record.description }}</p>
-                        </a>
+                        {% if record.direct_url is empty %}
+                            <a class="col-sm-3 text-center photo-album" href="{{ record.link }}">
+                                {% setcontent photo = "fotos/first/1" where { album_id: record.id } orderby 'datepublish ASC' %}
+                                <img class="img-responsive" src="{{ (photo|first).thumb_url }}" alt="{{ record.title }}">
+                                <h3>{{ record.title }}</h3>
+                                <p>{{ record.description }}</p>
+                            </a>
+                        {% else %}
+                            <a class="col-sm-3 text-center photo-album" href="{{ record.direct_url }}" target="_blank">
+                                <img class="img-responsive" src="{{ thumbnail(record.image, 144, 144) }}" alt="{{ record.title }}">
+                                <h3>{{ record.title }}</h3>
+                                <p>{{ record.description }}</p>
+                            </a>
+                        {% endif %}
                     {% endfor %}
                     <div class="clearfix"></div>
                 </div>

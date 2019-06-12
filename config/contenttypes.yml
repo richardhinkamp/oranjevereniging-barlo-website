@@ -173,6 +173,10 @@ picasa_album:
             height: 150px
         url:
             type: text
+        direct_url:
+            type: text
+        image:
+            type: image
         sync:
             type: checkbox
     sort: datepublish DESC
