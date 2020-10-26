@@ -50,10 +50,6 @@ sponsor:
     path: /sponsor
     defaults: { _controller: 'Cowb\Controllers\Frontend::sponsor' }
 
-pay:
-    path: /pay
-    defaults: { _controller: 'Cowb\Controllers\Frontend::pay' }
-
 payreturn:
     path: /pay/return
     defaults: { _controller: 'Cowb\Controllers\Frontend::payReturn' }

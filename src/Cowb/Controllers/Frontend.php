@@ -133,23 +133,4 @@ class Frontend
     {
         return $app['render']->render('sponsor-pending.twig');
     }
-    
-    public static function pay(Silex\Application $app)
-    {
-        $mollie = new \Mollie\Api\MollieApiClient();
-        $mollie->setApiKey("test_BE5bgAm8ghVw9qxW4xVwuDsNK6K88z");
-        $payment = $mollie->payments->create([
-            "amount" => [
-                "currency" => "EUR",
-                "value" => "10.00"
-            ],
-            "description" => "My first API payment",
-            "redirectUrl" => "http://oranjeverenigingbarlo.local/pay/return",
-            // "webhookUrl"  => "http://oranjeverenigingbarlo.local/pay/webhook/",
-        ]);
-        header("Location: " . $payment->getCheckoutUrl(), true, 303);
-        die();
-        die($payment->getCheckoutUrl());
-        return $app['render']->render('sponsor.twig');
-    }
 }
