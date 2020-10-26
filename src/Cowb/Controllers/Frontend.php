@@ -64,7 +64,7 @@ class Frontend
                             "value" => (string)$amount . '.00',
                         ],
                         "description" => "Bijdrage Groot Deunk",
-                        "redirectUrl" => "https://www.oranjeverenigingbarlo.nl/pay/return/" . $id . '/' . md5(join('#', array($name, $email, $bouwstenen, $gift, $added))),
+                        "redirectUrl" => "https://www.oranjeverenigingbarlo.nl/pay/return/" . $id . '/' . md5(join('#', array($id, $name, $email, $bouwstenen, $gift, $added))),
                         // "webhookUrl"  => "http://oranjeverenigingbarlo.local/pay/webhook/",
                     ]);
                     $item->values['payment_id'] = $payment->id;
@@ -106,7 +106,7 @@ class Frontend
     {
         $record = $app['db']->fetchAssoc("SELECT * FROM bolt_sponsoren WHERE id = ?", array(intval($id)));
         if($record) {
-            $recordHash = md5(join('#', array($record['name'], $record['email'], $record['bouwstenen'], $record['gift'], $record['added'])));
+            $recordHash = md5(join('#', array($id, $record['name'], $record['email'], $record['bouwstenen'], $record['gift'], $record['added'])));
             if($hash == $recordHash) {
                 $item = new \Bolt\Content($app, 'sponsoren', $record);
                 $mollie = getMollie();
