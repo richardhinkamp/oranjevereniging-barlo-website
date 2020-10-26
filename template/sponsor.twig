@@ -1,0 +1,51 @@
+{% extends "layout.twig" %}
+
+{% block title_text %}Sponsoring voor Groot Deunk{% endblock %}
+
+{% block page_content %}
+    <div class="row">
+        <div class="box">
+            <div class="col-lg-12">
+                <hr>
+                <h2 class="intro-text text-center">TEST :: Sponsoring voor Groot Deunk :: TEST</h2>
+                <hr>
+            </div>
+            <div class="col-lg-12">
+                <p>We zijn inmiddels druk bezig met onze nieuwe feest locatie bij Groot Deunk. De vergunningen zijn binnen, de bouwtekening is klaar en er is een bouwteam opgericht om alles in goede banen te leiden. Inmiddels is er al veel gedaan, volg alles in ons <a href="https://photos.app.goo.gl/q8NCa3TMSuBRQsbX9" target="_top">foto-album Groot Deunk</a>.</p>
+                <p>Nu het werk is begonnen, beginnen ook de kosten te lopen natuurlijk. De eerste facturen voor materialen zijn inmiddels al betaald. We kunnen daarom ook financiële hulp goed gebruiken. In 2017 hebben we van veel mensen en bedrijven een toezegging gekregen dat ze ons willen ondersteunen met een lening in de vorm van een bouwsteen en/of een eenmalige gift.</p>
+                <p>Hoe zat het ook alweer met die bouwstenen? Het is mogelijk om een “bouwsteen” te kopen voor € 50,- per steen, jaarlijks worden er dan 10 bouwstenen, getrokken uit de namen van de kopers, teruggegeven aan de kopers. Dit is dus een renteloze lening aan de Oranjevereniging.</p>
+                <p>Liever niet via iDEAL betaling? Je kunt altijd je bijdrage overmaken op NL08RABO0380219735 t.n.v. Chr. Oranjevereniging Wilhelmina te Barlo. Geef dan wel even door of het om bouwstenen of een gift gaat. Liever contant je bijdrage geven? Neem dan even contact op met Richard Hinkamp.</p>
+                <p>Wil je liever zakelijk ons sponsoren, dan kan dat ook natuurlijk. Wij zorgen dat je een factuur krijgt van ons. Neem hiervoor contact op met Richard Hinkamp.</p>
+                <p>Contact gegevens Richard Hinkamp: <a href="mailto:penningmeester@oranjeverenigingbarlo.nl">penningmeester@oranjeverenigingbarlo.nl</a> of <a href="tel:+31647484923">0647484923</a>.</p>
+                <p style="font-weight: bold">Nu vragen we je deze toezegging definitief te maken!</p>
+                <p>Vul onderstaand formulier in en betaal via iDEAL en help ons iets geweldigs neer te op de Groot Deunk locatie!</p>
+                
+                {% if error %}
+                    <p class="error">Het formulier is niet correct ingevuld. Vul een naam en e-mail adres in en kies voor bouwstenen en/of een gift.</p>
+                {% endif %}
+                    
+                <form class="sponsor" action="/sponsor" method="POST">
+                    <label>
+                        <span class="text">Naam</span>
+                        <input name="name" type="text" value="{{ name }}">
+                    </label>
+                    <label>
+                        <span class="text">E-mail adres</span>
+                        <input name="email" type="email" value="{{ email }}">
+                    </label>
+                    <label>
+                        <span class="text">Aantal bouwstenen</span>
+                        <input name="bouwstenen" type="number" class="small" value="{{ bouwstenen }}">
+                        a € 50,- (renteloze lening)
+                    </label>
+                    <label>
+                        <span class="text">Eenmalige gift (€)</span>
+                        <input name="gift" type="number" class="small" value="{{ gift }}">
+                    </label>
+                    <input type="submit" value="Naar overzicht">
+                </form>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+{% endblock %}

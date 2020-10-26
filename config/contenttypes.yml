@@ -1,7 +1,6 @@
 # This file defines the contenttypes on the website. See the documentation for
 # details: http://docs.bolt.cm/content#defining-contenttypes
 
-
 # Entries can be used for things like 'news' or 'blogpostings'. They have a 'teaser',
 # which can be used for a short blurb on listing-pages, allowing visitors to
 # click-through to the rest of the entry. It also has fields for an image and an
@@ -33,12 +32,12 @@ news:
         body:
             type: html
             height: 300px
-#    relations:
-#        pages:
-#          multiple: false
-#          order: title
-#          label: Select a page
-#    taxonomy: [ categories, tags ]
+    #    relations:
+    #        pages:
+    #          multiple: false
+    #          order: title
+    #          label: Select a page
+    #    taxonomy: [ categories, tags ]
     record_template: news-detail.twig
     listing_template: news-listing.twig
     listing_records: 10
@@ -72,12 +71,12 @@ activity:
         body:
             type: html
             height: 300px
-#    relations:
-#        pages:
-#          multiple: false
-#          order: title
-#          label: Select a page
-#    taxonomy: [ categories, tags ]
+    #    relations:
+    #        pages:
+    #          multiple: false
+    #          order: title
+    #          label: Select a page
+    #    taxonomy: [ categories, tags ]
     record_template: activity-detail.twig
     listing_template: activity-listing.twig
     listing_records: 20
@@ -107,12 +106,12 @@ board:
         body:
             type: html
             height: 300px
-#    relations:
-#        pages:
-#          multiple: false
-#          order: title
-#          label: Select a page
-#    taxonomy: [ categories, tags ]
+    #    relations:
+    #        pages:
+    #          multiple: false
+    #          order: title
+    #          label: Select a page
+    #    taxonomy: [ categories, tags ]
     record_template: board-detail.twig
     listing_template: board-listing.twig
     listing_records: 30
@@ -148,10 +147,10 @@ pages:
         body:
             type: html
             height: 300px
-#        template:
-#            type: templateselect
-#            filter: '*.twig'
-#    taxonomy: [ chapters ]
+    #        template:
+    #            type: templateselect
+    #            filter: '*.twig'
+    #    taxonomy: [ chapters ]
     sort: title
     default_status: publish
     recordsperpage: 100
@@ -227,7 +226,7 @@ videos:
     default_status: published
     recordsperpage: 100
     class: Cowb\Content\VideoContent
-    
+
 emailconfirm:
     name: Emailadressen
     slug: emails
@@ -243,6 +242,36 @@ emailconfirm:
     default_status: draft
     recordsperpage: 0
 
+sponsors:
+    name: Sponsoren
+    slug: sponsoren
+    singular_name: Sponsor
+    singular_slug: sponsor
+    show_on_dashboard: true
+    fields:
+        name:
+            type: text
+        email:
+            type: text
+        added:
+            type: datetime
+        confirmed:
+            type: datetime
+        paid:
+            type: datetime
+        bouwstenen:
+            type: integer
+        gift:
+            type: integer
+        amount:
+            type: integer
+        payment_id:
+            type: text
+        payment_status:
+            type: text
+    sort: datepublish ASC
+    default_status: draft
+    recordsperpage: 0
 # possible field types:
 # text - varchar(256) - input type text.
 # integer - integer - Input field for integer numbers.

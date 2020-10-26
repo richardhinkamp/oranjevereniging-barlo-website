@@ -29,7 +29,8 @@
 
         "richardhinkamp/bolt-picasa": "dev-master",
         "richardhinkamp/kcfinder": "dev-master",
-        "twbs/bootstrap-sass": "~3.1"
+        "twbs/bootstrap-sass": "~3.1",
+        "mollie/mollie-api-php": "^2.0"
     },
     "require-dev": {
     },

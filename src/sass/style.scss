@@ -88,9 +88,6 @@ a {
   }
 }
 
-p {
-}
-
 hr {
   border-color: #999999;
   max-width: 400px;
@@ -412,4 +409,40 @@ footer {
     font-size: 1.25em;
     letter-spacing: 3px;
   }
+}
+
+form.sponsor {
+  label {
+    display: block;
+    
+    .text {
+      display: inline-block;
+      width: 150px;
+    }
+    
+    input.small {
+      width: 70px;
+      text-align: center;
+    }
+  }
+  
+  input[type=submit] {
+    background-color: darkorange;
+    border: 1px solid darken(darkorange,30%);
+    border-radius: 5px;
+    padding: 5px 15px;
+    font-weight: bold;
+
+    &:hover {
+      background-color: darken(darkorange,10%);
+    }
+  }
+}
+
+p.error {
+  border: 1px solid red;
+  color: red;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 5px;
 }
