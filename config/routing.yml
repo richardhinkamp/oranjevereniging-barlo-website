@@ -46,6 +46,10 @@ emailconfirm:
     path: /emailconfirm/{data}/{hash}
     defaults: { _controller: 'Cowb\Controllers\Frontend::emailconfirm' }
 
+fotoskoningsdag2020:
+    path: /fotos-koningsdag-2020
+    defaults: { _controller: 'Bolt\Controllers\Frontend::template', template: "koningsdagfotos" }
+
 sponsor:
     path: /sponsor
     defaults: { _controller: 'Cowb\Controllers\Frontend::sponsor' }

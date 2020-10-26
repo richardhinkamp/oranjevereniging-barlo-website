@@ -1,0 +1,124 @@
+{% extends "page.twig" %}
+
+{% block page_content %}
+    <div class="container">
+
+        <div class="row">
+            <div class="box">
+                <div class="col-lg-12">
+                    <hr>
+                    <h2 class="intro-text text-center">Foto's Koningsdag 2020</h2>
+                    <p>Dit zijn de (tot nu toe) ingezonden foto's voor de Koningsdag 2020 "fotografeer je huis met onze driekleur opdracht". Inzenden kan nog steeds via <a href="mailto:info@oranjeverenigingbarlo.nl">info@oranjeverenigingbarlo.nl</a> en maak kans op een prachtig oranje pakket ter waarde van € 40!</p>
+                    <hr>
+                </div>
+                <div class="photos">
+                    {% set photos = [
+                       { 'title': 'Jan & Ineke Jentink (2)', 'id': 'janinekejentink2' },
+                       { 'title': 'Fam. H. Ligterink', 'id': 'famhligterink' },
+                       { 'title': 'Fam. Van Eerden', 'id': 'famvaneerden' }
+                    ] %}
+                    {% for photo in photos %}
+                        <a class="col-sm-2 text-center photo" href="/files/koningsdag2020/full/{{ photo.id }}.mp4" title="{{ photo.title }}">
+                            <img class="img-responsive" src="/files/koningsdag2020/thumb/{{ photo.id }}.jpg" alt="{{ photo.title }}">
+                        </a>
+                    {% endfor %}
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="photos">
+                    {% set photos = [
+                       { 'title': 'JanWillem Rendering', 'id': 'janwillemrendering' },
+                       { 'title': 'Steffen Rendering', 'id': 'steffenrendering' },
+                       { 'title': 'Fam. Ligterink', 'id': 'famligterink3' },
+                       { 'title': 'Fam. Van Eerden-Sweenen', 'id': 'famvaneerdensweenen' },
+                       { 'title': 'Fam. Ormel', 'id': 'famormel' },
+                       { 'title': 'Fam. Rotink', 'id': 'famrotink' },
+                       { 'title': 'Fam. Zwartbol', 'id': 'famzwartbol' },
+                       { 'title': 'Henk & Erna Kolstee', 'id': 'henkernakolstee' },
+                       { 'title': 'Fam. Ten Brinke', 'id': 'famtenbrinke' },
+                       { 'title': 'Andre Deunk', 'id': 'andreduenk' },
+                       { 'title': 'Margreet te Brinke', 'id': 'margreettebrinke' },
+                       { 'title': 'Wilma Lageschaar', 'id': 'wilmalageschaar' },
+                       { 'title': 'Klaas Rendering', 'id': 'klaasrendering' },
+                       { 'title': 'Wim & Willemien van Eerden', 'id': 'wimwillemienvaneerden' },
+                       { 'title': 'Fam. Westerveld (de Haart)', 'id': 'famwesterveldhaart' },
+                       { 'title': 'Fam. Postgens (1)', 'id': 'fampostgens1' },
+                       { 'title': 'Fam. Postgens (2)', 'id': 'fampostgens2' },
+                       { 'title': 'Fam. Bongen & Stemerdink', 'id': 'fambongenstemerdink' },
+                       { 'title': 'Joke & Rob Loyer', 'id': 'jokerobloyer' },
+                       { 'title': 'Frank, Gerdienke & Tian Graven (1)', 'id': 'frankgerdienketianvaneerden1' },
+                       { 'title': 'Frank, Gerdienke & Tian Graven (2)', 'id': 'frankgerdienketianvaneerden2' },
+                       { 'title': 'Jan & Ineke Jentink (1)', 'id': 'janinekejentink' },
+                       { 'title': 'Jolanda Kobus', 'id': 'jolandakobus' },
+                       { 'title': 'Fam. Everdingen', 'id': 'fameverdingen' },
+                       { 'title': 'Fam. Luiten Kuiermaat', 'id': 'famluitenkuiermaat' },
+                       { 'title': 'Fam. Te Paske (1)', 'id': 'famtepaske1' },
+                       { 'title': 'Fam. Te Paske (2)', 'id': 'famtepaske2' },
+                       { 'title': 'Dinie & Han Ebbers', 'id': 'diniehanebbers' },
+                       { 'title': 'Fam. B. Gussinklo (1)', 'id': 'fambgussinklo1' },
+                       { 'title': 'Fam. B. Gussinklo (2)', 'id': 'fambgussinklo2' },
+                       { 'title': 'Fam. B. Gussinklo (3)', 'id': 'fambgussinklo3' },
+                       { 'title': 'Fam. B. Gussinklo (4)', 'id': 'fambgussinklo4' },
+                       { 'title': 'Henk & Anita Koskamp', 'id': 'henkanitakoskamp' },
+                       { 'title': 'Fam. Winkelhorst', 'id': 'famwinkelhorst' },
+                       { 'title': 'Fam. Leemreise', 'id': 'famleemreise' },
+                       { 'title': '\'t Zilverzand (1)', 'id': 'zilverzand1' },
+                       { 'title': '\'t Zilverzand (2)', 'id': 'zilverzand2' },
+                       { 'title': 'Irma & Rene Kolstee', 'id': 'irmarenekolstee' },
+                       { 'title': 'Luuk Nijenhuis & Karin Nauta', 'id': 'luuknijenhuiskarinnauta' },
+                       { 'title': 'Fam. Westerveld', 'id': 'famwesterveld' },
+                       { 'title': 'Fam. P. Ligterink', 'id': 'famligterink' },
+                       { 'title': 'Dick & Willy Stronks', 'id': 'dickwillystronks' },
+                       { 'title': 'Fam. R. Gussinklo (1)', 'id': 'famgussinklo1' },
+                       { 'title': 'Fam. R. Gussinklo (2)', 'id': 'famgussinklo2' },
+                       { 'title': 'Fam. Hinkamp', 'id': 'famhinkamp' },
+                       { 'title': 'Fam. Te Brinke', 'id': 'famtebrinke' },
+                       { 'title': 'Fam. Waalder (1)', 'id': 'famwaalder1' },
+                       { 'title': 'Fam. Waalder (2)', 'id': 'famwaalder2' },
+                       { 'title': 'Fam. Waalder (3)', 'id': 'famwaalder3' },
+                       { 'title': 'Inge Sloetjes & Ferdi Ikink', 'id': 'ferdiikinkingesloetjes' },
+                       { 'title': 'Fam. Luiten', 'id': 'guusluiten' },
+                       { 'title': 'Henk & Jenny Westerveld', 'id': 'henkjennywesterveld' },
+                       { 'title': 'Hermen & Ria Simmelink', 'id': 'hermanriasimmelink' },
+                       { 'title': 'Jan van Eerden', 'id': 'janvaneerden' },
+                       { 'title': 'Rudi ter Maat & Dick Sloetjes', 'id': 'ruditermaatdicksloetjes' },
+                       { 'title': 'Willy Koskamp', 'id': 'willykoskamp' },
+                       { 'title': 'Wim & Jannie Luiten (1)', 'id': 'wimjannieluiten1' },
+                       { 'title': 'Wim & Jannie Luiten (2)', 'id': 'wimjannieluiten2' },
+                       { 'title': 'Arjan & Ingrid Luiten', 'id': 'arjaningridluiten' },
+                       { 'title': 'Zoë Bosveld', 'id': 'zoebosveld' },
+                       { 'title': 'Fam. Slootmans', 'id': 'famslootmans' },
+                       { 'title': 'Fam. Brethouwer (3)', 'id': 'fambrethouwer3' },
+                       { 'title': 'Fam. Brethouwer (2)', 'id': 'fambrethouwer2' },
+                       { 'title': 'Fam. Brethouwer (1)', 'id': 'fambrethouwer1' },
+                       { 'title': 'Elise van Eerden', 'id': 'elisevaneerden' }
+                    ] %}
+                    {% for photo in photos %}
+                        <a class="col-sm-2 text-center photo pfb" rel="album" href="/files/koningsdag2020/full/{{ photo.id }}.jpg" title="{{ photo.title }}">
+                            <img class="img-responsive" src="/files/koningsdag2020/thumb/{{ photo.id }}.jpg" alt="{{ photo.title }}">
+                        </a>
+                    {% endfor %}
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- /.container -->
+
+{% endblock %}
+
+{% block css %}
+    <link href="/fancybox/source/jquery.fancybox.css" rel="stylesheet">
+{% endblock %}
+
+{% block javascript %}
+    {{ parent() }}
+    <script src="/fancybox/lib/jquery.mousewheel-3.0.6.pack.js" type="text/javascript"></script>
+    <script src="/fancybox/source/jquery.fancybox.pack.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.pfb').fancybox();
+        });
+    </script>
+{% endblock %}
