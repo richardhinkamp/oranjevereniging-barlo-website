@@ -64,7 +64,7 @@ class Frontend
                             "value" => (string)$amount . '.00',
                         ],
                         "description" => "Bijdrage Groot Deunk",
-                        "redirectUrl" => "http://oranjeverenigingbarlo.local/pay/return/" . $id . '/' . md5(join('#', array($name, $email, $bouwstenen, $gift, $added))),
+                        "redirectUrl" => "https://www.oranjeverenigingbarlo.nl/pay/return/" . $id . '/' . md5(join('#', array($name, $email, $bouwstenen, $gift, $added))),
                         // "webhookUrl"  => "http://oranjeverenigingbarlo.local/pay/webhook/",
                     ]);
                     $item->values['payment_id'] = $payment->id;
