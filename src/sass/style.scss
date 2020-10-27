@@ -418,6 +418,10 @@ form.sponsor {
     .text {
       display: inline-block;
       width: 150px;
+      @media screen and (max-width: 500px) {
+        display: block;
+        width: auto;
+      }
     }
     
     input.small {

@@ -24,16 +24,16 @@
                     <dt>Totaal</dt>
                     <dd>€&nbsp;{{ amount }},-</dd>
                 </dl>
+                <form action="/sponsor" method="POST" class="sponsor">
+                    <input type="hidden" name="name" value="{{ name }}">
+                    <input type="hidden" name="email" value="{{ email }}">
+                    <input type="hidden" name="bouwstenen" value="{{ bouwstenen }}">
+                    <input type="hidden" name="gift" value="{{ gift }}">
+                    <input type="hidden" name="added" value="{{ added }}">
+                    <input type="hidden" name="confirm" value="1">
+                    <input type="submit" value="Bevestig en betaal">
+                </form>
             </div>
-            <form action="/sponsor" method="POST" class="sponsor">
-                <input type="hidden" name="name" value="{{ name }}">
-                <input type="hidden" name="email" value="{{ email }}">
-                <input type="hidden" name="bouwstenen" value="{{ bouwstenen }}">
-                <input type="hidden" name="gift" value="{{ gift }}">
-                <input type="hidden" name="added" value="{{ added }}">
-                <input type="hidden" name="confirm" value="1">
-                <input type="submit" value="Bevestig en betaal">
-            </form>
             <div class="clearfix"></div>
         </div>
     </div>

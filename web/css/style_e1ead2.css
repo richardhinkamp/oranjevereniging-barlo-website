@@ -4111,6 +4111,10 @@ form.sponsor label {
   form.sponsor label .text {
     display: inline-block;
     width: 150px; }
+    @media screen and (max-width: 500px) {
+      form.sponsor label .text {
+        display: block;
+        width: auto; } }
   form.sponsor label input.small {
     width: 70px;
     text-align: center; }
@@ -4130,4 +4134,4 @@ p.error {
   padding: 10px;
   border-radius: 5px; }
 
-/*# sourceMappingURL=style.css.map */
+/*# sourceMappingURL=style_6bfa76.css.map */
