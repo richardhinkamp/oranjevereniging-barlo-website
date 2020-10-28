@@ -51,7 +51,11 @@ fotoskoningsdag2020:
     defaults: { _controller: 'Bolt\Controllers\Frontend::template', template: "koningsdagfotos" }
 
 sponsor:
-    path: /sponsor
+    path: /bouwstenen
+    defaults: { _controller: 'Cowb\Controllers\Frontend::sponsor' }
+
+sponsordata:
+    path: /bouwstenen/{data}
     defaults: { _controller: 'Cowb\Controllers\Frontend::sponsor' }
 
 payreturn:

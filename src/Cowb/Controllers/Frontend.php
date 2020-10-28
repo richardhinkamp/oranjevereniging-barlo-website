@@ -37,7 +37,7 @@ class Frontend
         }
     }
     
-    public static function sponsor(Silex\Application $app)
+    public static function sponsor(Silex\Application $app, $data = null)
     {
         if($app['request']->server->get('REQUEST_METHOD') == 'POST') {
             $name = $app['request']->request->get('name');
@@ -58,12 +58,19 @@ class Frontend
                     $item->values['confirmed'] = date("Y-m-d H:i:s");
                     $id = $app['storage']->saveContent($item);
                     $mollie = getMollie();
+                    $description = "Bijdrage Groot Deunk";
+                    if($bouwstenen > 0) {
+                        $description .= " - $bouwstenen bouwstenen à € 50,- (renteloze lening)";
+                    }
+                    if($gift > 0) {
+                        $description .= " - gift € $gift";
+                    }
                     $payment = $mollie->payments->create([
                         "amount" => [
                             "currency" => "EUR",
                             "value" => (string)$amount . '.00',
                         ],
-                        "description" => "Bijdrage Groot Deunk",
+                        "description" => $description,
                         "redirectUrl" => "https://www.oranjeverenigingbarlo.nl/pay/return/" . $id . '/' . md5(join('#', array($id, $name, $email, $bouwstenen, $gift, $added))),
                         // "webhookUrl"  => "http://oranjeverenigingbarlo.local/pay/webhook/",
                     ]);
@@ -93,11 +100,27 @@ class Frontend
                 return $app['render']->render('sponsor.twig');
             }
         } else {
+            $name = $email = $bouwstenen = $gift = '';
+            if($data) {
+                $parts = explode('|', $data);
+                if(
+                    count($parts) == 4 && 
+                    $parts[0] != '' && 
+                    filter_var($parts[1], FILTER_VALIDATE_EMAIL) && 
+                    ($parts[2] == '' || is_numeric($parts[2])) && 
+                    ($parts[3] == '' || is_numeric($parts[3]))
+                ) {
+                    $name = $parts[0];
+                    $email = $parts[1];
+                    $bouwstenen = $parts[2];
+                    $gift = $parts[3];
+                }
+            }
             $app['twig']->addGlobal('error', false);
-            $app['twig']->addGlobal('name', '');
-            $app['twig']->addGlobal('email', '');
-            $app['twig']->addGlobal('bouwstenen', '');
-            $app['twig']->addGlobal('gift', '');
+            $app['twig']->addGlobal('name', $name);
+            $app['twig']->addGlobal('email', $email);
+            $app['twig']->addGlobal('bouwstenen', $bouwstenen);
+            $app['twig']->addGlobal('gift', $gift);
             return $app['render']->render('sponsor.twig');
         }
     }
@@ -125,7 +148,7 @@ class Frontend
                 }
             }
         }
-        header("Location: /sponsor", true, 301);
+        header("Location: /bouwstenen", true, 301);
         die();
     }
     

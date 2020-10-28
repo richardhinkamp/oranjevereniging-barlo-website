@@ -18,13 +18,13 @@
                     <dt>E-mail adres</dt>
                     <dd>{{ email }}</dd>
                     <dt>Aantal bouwstenen</dt>
-                    <dd>{{ bouwstenen }} a € 50,- (renteloze lening)</dd>
+                    <dd>{{ bouwstenen }} à € 50,- (renteloze lening)</dd>
                     <dt>Gift</dt>
                     <dd>€&nbsp;{{ gift }},-</dd>
                     <dt>Totaal</dt>
                     <dd>€&nbsp;{{ amount }},-</dd>
                 </dl>
-                <form action="/sponsor" method="POST" class="sponsor">
+                <form action="/bouwstenen" method="POST" class="sponsor">
                     <input type="hidden" name="name" value="{{ name }}">
                     <input type="hidden" name="email" value="{{ email }}">
                     <input type="hidden" name="bouwstenen" value="{{ bouwstenen }}">

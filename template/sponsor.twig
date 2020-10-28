@@ -24,7 +24,7 @@
                     <p class="error">Het formulier is niet correct ingevuld. Vul een naam en e-mail adres in en kies voor bouwstenen en/of een gift.</p>
                 {% endif %}
                     
-                <form class="sponsor" action="/sponsor" method="POST">
+                <form class="sponsor" action="/bouwstenen" method="POST">
                     <label>
                         <span class="text">Naam</span>
                         <input name="name" type="text" value="{{ name }}">
@@ -36,7 +36,7 @@
                     <label>
                         <span class="text">Aantal bouwstenen</span>
                         <input name="bouwstenen" type="number" class="small" value="{{ bouwstenen }}">
-                        a € 50,- (renteloze lening)
+                        à € 50,- (renteloze lening)
                     </label>
                     <label>
                         <span class="text">Eenmalige gift (€)</span>
