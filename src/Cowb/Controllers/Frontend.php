@@ -6,9 +6,9 @@ use Silex;
 use Mollie\Api\MollieApiClient;
 use Mollie\Api\Types\PaymentStatus;
 
-function getMollie() {
+function getMollie(Silex\Application $app) {
     $mollie = new MollieApiClient();
-    $mollie->setApiKey(require(__DIR__ . '/../../../config/mollie.php'));
+    $mollie->setApiKey($app['config']->get('general/sponsor/mollie_api_key'));
     return $mollie;
 }
 
@@ -40,6 +40,7 @@ class Frontend
     public static function sponsor(Silex\Application $app, $data = null)
     {
         if($app['request']->server->get('REQUEST_METHOD') == 'POST') {
+            $intentieId = $app['request']->request->get('intentie_id');
             $name = $app['request']->request->get('name');
             $email = $app['request']->request->get('email');
             $bouwstenen = intval($app['request']->request->get('bouwstenen'));
@@ -49,6 +50,7 @@ class Frontend
                 if(intval($app['request']->request->get('confirm')) == 1) {
                     $added = $app['request']->request->get('added');
                     $item = new \Bolt\Content($app, 'sponsoren', array());
+                    $item->values['intentie_id'] = $intentieId > 0 ? $intentieId : null;
                     $item->values['name'] = $name;
                     $item->values['email'] = $email;
                     $item->values['bouwstenen'] = $bouwstenen;
@@ -57,7 +59,7 @@ class Frontend
                     $item->values['added'] = $added;
                     $item->values['confirmed'] = date("Y-m-d H:i:s");
                     $id = $app['storage']->saveContent($item);
-                    $mollie = getMollie();
+                    $mollie = getMollie($app);
                     $description = "Bijdrage Groot Deunk";
                     if($bouwstenen > 0) {
                         $description .= " - $bouwstenen bouwstenen à € 50,- (renteloze lening)";
@@ -71,7 +73,7 @@ class Frontend
                             "value" => (string)$amount . '.00',
                         ],
                         "description" => $description,
-                        "redirectUrl" => "https://www.oranjeverenigingbarlo.nl/pay/return/" . $id . '/' . md5(join('#', array($id, $name, $email, $bouwstenen, $gift, $added))),
+                        "redirectUrl" => $app['config']->get('general/sponsor/hostname') . "/pay/return/" . $id . '/' . md5(join('#', array($id, $name, $email, $bouwstenen, $gift, $added))),
                         // "webhookUrl"  => "http://oranjeverenigingbarlo.local/pay/webhook/",
                     ]);
                     $item->values['payment_id'] = $payment->id;
@@ -80,9 +82,8 @@ class Frontend
                     $payment->redirectUrl .= '/' . $id . '/' . md5($id . '#' . $payment->id);
                     header("Location: " . $payment->getCheckoutUrl(), true, 303);
                     die();
-                    $app['storage']->saveContent($item);
-                    return $app['render']->render('sponsor-bedankt.twig');
                 } else {
+                    $app['twig']->addGlobal('intentie_id', $intentieId);
                     $app['twig']->addGlobal('name', $name);
                     $app['twig']->addGlobal('email', $email);
                     $app['twig']->addGlobal('bouwstenen', $bouwstenen);
@@ -100,23 +101,29 @@ class Frontend
                 return $app['render']->render('sponsor.twig');
             }
         } else {
-            $name = $email = $bouwstenen = $gift = '';
+            $intentieId = $name = $email = $bouwstenen = $gift = '';
+            $validData = false;
             if($data) {
                 $parts = explode('|', $data);
                 if(
-                    count($parts) == 4 && 
-                    $parts[0] != '' && 
-                    filter_var($parts[1], FILTER_VALIDATE_EMAIL) && 
-                    ($parts[2] == '' || is_numeric($parts[2])) && 
-                    ($parts[3] == '' || is_numeric($parts[3]))
+                    count($parts) == 5 && 
+                    is_numeric($parts[0]) && 
+                    $parts[1] != '' && 
+                    filter_var($parts[2], FILTER_VALIDATE_EMAIL) && 
+                    ($parts[3] == '' || is_numeric($parts[3])) && 
+                    ($parts[4] == '' || is_numeric($parts[4]))
                 ) {
-                    $name = $parts[0];
-                    $email = $parts[1];
-                    $bouwstenen = $parts[2];
-                    $gift = $parts[3];
+                    $intentieId = intval($parts[0]);
+                    $name = $parts[1];
+                    $email = $parts[2];
+                    $bouwstenen = $parts[3];
+                    $gift = $parts[4];
+                    $validData = true;
                 }
             }
             $app['twig']->addGlobal('error', false);
+            $app['twig']->addGlobal('with_data', $validData);
+            $app['twig']->addGlobal('intentie_id', $intentieId);
             $app['twig']->addGlobal('name', $name);
             $app['twig']->addGlobal('email', $email);
             $app['twig']->addGlobal('bouwstenen', $bouwstenen);
@@ -132,7 +139,7 @@ class Frontend
             $recordHash = md5(join('#', array($id, $record['name'], $record['email'], $record['bouwstenen'], $record['gift'], $record['added'])));
             if($hash == $recordHash) {
                 $item = new \Bolt\Content($app, 'sponsoren', $record);
-                $mollie = getMollie();
+                $mollie = getMollie($app);
                 $payment = $mollie->payments->get($record['payment_id']);
                 if($payment) {
                     $item->values['payment_status'] = $payment->status;

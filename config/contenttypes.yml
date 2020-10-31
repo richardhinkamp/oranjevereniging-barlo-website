@@ -269,6 +269,8 @@ sponsors:
             type: text
         payment_status:
             type: text
+        intentie_id:
+            type: integer
     sort: datepublish ASC
     default_status: draft
     recordsperpage: 0
