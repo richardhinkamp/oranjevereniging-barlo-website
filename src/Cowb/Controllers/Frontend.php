@@ -39,6 +39,27 @@ class Frontend
     
     public static function sponsor(Silex\Application $app, $data = null)
     {
+        $intentieId = $name = $email = $bouwstenen = $gift = '';
+        $validData = false;
+        if($data) {
+            $parts = explode('|', $data);
+            if(
+                count($parts) == 5 && 
+                is_numeric($parts[0]) && 
+                $parts[1] != '' && 
+                filter_var($parts[2], FILTER_VALIDATE_EMAIL) && 
+                ($parts[3] == '' || is_numeric($parts[3])) && 
+                ($parts[4] == '' || is_numeric($parts[4]))
+            ) {
+                $intentieId = intval($parts[0]);
+                $name = $parts[1];
+                $email = $parts[2];
+                $bouwstenen = $parts[3];
+                $gift = $parts[4];
+                $validData = true;
+            }
+        }
+
         if($app['request']->server->get('REQUEST_METHOD') == 'POST') {
             $intentieId = $app['request']->request->get('intentie_id');
             $name = $app['request']->request->get('name');
@@ -94,6 +115,21 @@ class Frontend
                 }
             } else {
                 $app['twig']->addGlobal('error', true);
+                $errorMsgs = array();
+                if(trim($name) == '') {
+                    $errorMsgs[] = 'Vul je naam in.';
+                }
+                if(trim($email) == '') {
+                    $errorMsgs[] = 'Vul je e-mail adres in.';
+                } else if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                    $errorMsgs[] = 'Vul een geldig e-mail adres in.';
+                }
+                if($bouwstenen <= 0 && $gift <= 0) {
+                    $errorMsgs[] = 'Vul een aantal bouwstenen of een vrije gift in.';
+                }
+                $app['twig']->addGlobal('error_messages', join(' ', $errorMsgs));
+                $app['twig']->addGlobal('with_data', $validData);
+                $app['twig']->addGlobal('intentie_id', $intentieId);
                 $app['twig']->addGlobal('name', $name);
                 $app['twig']->addGlobal('email', $email);
                 $app['twig']->addGlobal('bouwstenen', $bouwstenen > 0 ? $bouwstenen : '');
@@ -101,27 +137,8 @@ class Frontend
                 return $app['render']->render('sponsor.twig');
             }
         } else {
-            $intentieId = $name = $email = $bouwstenen = $gift = '';
-            $validData = false;
-            if($data) {
-                $parts = explode('|', $data);
-                if(
-                    count($parts) == 5 && 
-                    is_numeric($parts[0]) && 
-                    $parts[1] != '' && 
-                    filter_var($parts[2], FILTER_VALIDATE_EMAIL) && 
-                    ($parts[3] == '' || is_numeric($parts[3])) && 
-                    ($parts[4] == '' || is_numeric($parts[4]))
-                ) {
-                    $intentieId = intval($parts[0]);
-                    $name = $parts[1];
-                    $email = $parts[2];
-                    $bouwstenen = $parts[3];
-                    $gift = $parts[4];
-                    $validData = true;
-                }
-            }
             $app['twig']->addGlobal('error', false);
+            $app['twig']->addGlobal('error_messages', '');
             $app['twig']->addGlobal('with_data', $validData);
             $app['twig']->addGlobal('intentie_id', $intentieId);
             $app['twig']->addGlobal('name', $name);

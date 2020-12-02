@@ -22,7 +22,7 @@
                 <p>Vul onderstaand formulier in en betaal via iDEAL en help ons iets geweldigs neer te op de Groot Deunk locatie! Je kunt meerdere donaties doen, als je later toch nog wat extra's wilt doen of graag een deel op een andere naam wilt hebben.</p>
                 
                 {% if error %}
-                    <p class="error">Het formulier is niet correct ingevuld. Vul een naam en e-mail adres in en kies voor bouwstenen en/of een vrije gift.</p>
+                    <p class="error">Het formulier is niet correct ingevuld. {{ error_messages }}</p>
                 {% endif %}
                     
                 {% if with_data %}
