@@ -18,7 +18,9 @@
                 <p>Je kunt via onderstaande formulier je bijdrage doorgeven en betalen via iDEAL. Liever niet via iDEAL betalen? Je kunt altijd je bijdrage overmaken op NL08RABO0380219735 t.n.v. Chr. Oranjevereniging Wilhelmina te Barlo. Geef dan wel even door of het om bouwstenen of een vrije gift gaat. Liever contant je bijdrage geven? Neem dan even contact op met Richard Hinkamp.</p>
                 <p>Wil je liever zakelijk ons sponsoren, dan kan dat ook natuurlijk. Wij zorgen dat je een factuur krijgt van ons. Neem hiervoor contact op met Richard Hinkamp.</p>
                 <p>Contact gegevens Richard Hinkamp: <a href="mailto:penningmeester@oranjeverenigingbarlo.nl">penningmeester@oranjeverenigingbarlo.nl</a> of <a href="tel:+31647484923">0647484923</a>.</p>
-                <p style="font-weight: bold">Nu vragen we je deze toezegging definitief te maken!</p>
+                {% if with_data %}
+                    <p style="font-weight: bold">Nu vragen we je deze toezegging definitief te maken!</p>
+                {% endif %}
                 <p>Vul onderstaand formulier in en betaal via iDEAL en help ons iets geweldigs neer te op de Groot Deunk locatie! Je kunt meerdere donaties doen, als je later toch nog wat extra's wilt doen of graag een deel op een andere naam wilt hebben.</p>
                 
                 {% if error %}
